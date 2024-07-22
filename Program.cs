@@ -60,4 +60,6 @@ namespace OOPS_Concept
             Console.ReadLine();
         }
     }
+
+    //Note: We Don't Use Destructur in c# because c# has there own garbage collector:
 }
