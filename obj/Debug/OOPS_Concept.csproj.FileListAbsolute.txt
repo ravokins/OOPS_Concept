@@ -1,0 +1,8 @@
+D:\DSA\OOPs\OOPS_Concept\obj\Debug\OOPS_Concept.csproj.AssemblyReference.cache
+D:\DSA\OOPs\OOPS_Concept\obj\Debug\OOPS_Concept.csproj.SuggestedBindingRedirects.cache
+D:\DSA\OOPs\OOPS_Concept\obj\Debug\OOPS_Concept.csproj.CoreCompileInputs.cache
+D:\DSA\OOPs\OOPS_Concept\bin\Debug\OOPS_Concept.exe.config
+D:\DSA\OOPs\OOPS_Concept\bin\Debug\OOPS_Concept.exe
+D:\DSA\OOPs\OOPS_Concept\bin\Debug\OOPS_Concept.pdb
+D:\DSA\OOPs\OOPS_Concept\obj\Debug\OOPS_Concept.exe
+D:\DSA\OOPs\OOPS_Concept\obj\Debug\OOPS_Concept.pdb
