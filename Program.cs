@@ -12,16 +12,24 @@ namespace OOPS_Concept
     {
         class Student
         {
-            public string name;
-            public int age;
-            public int id;
+            public string Name{ get; set; }
+            public int Age { get; set; }
+            public int Id { get; set; }
 
-            public Student(int age,int id, string name)
+
+            public void StudentIndfo(int age, int id, string name)
             {
-                this.age = age;
-                this.id = id;
-                this.name = name;
-                Console.WriteLine("Student Info:"+ "\nName: " + name+ "\nAge: " + age+ "\nId: " + id);
+                Name = name.ToLower();
+                Age = age;
+                Id = id;
+
+                Console.WriteLine("Student Info:" + "\nName:" + name + "\nAge: " + age + "\nId: " + id);
+
+            }
+            public Student()
+            {
+                
+               
 
             }
         }
@@ -30,9 +38,21 @@ namespace OOPS_Concept
 
         static void Main(string[] args)
         {
+           
 
-            Console.ReadLine();
-            Student student = new Student(22,11,"Ravi");
+            Console.Write("Enter Student Info: ");
+            Console.Write("Name: ");
+            string name=Console.ReadLine();
+            Console.Write("Age: ");
+            int age =Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Id: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+
+
+
+            Student student = new Student();
+
+            student.StudentIndfo(age, id, name);
 
             Console.ReadLine();
         }
