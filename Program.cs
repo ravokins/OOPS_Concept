@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace OOPS_Concept
 {
@@ -19,26 +14,38 @@ namespace OOPS_Concept
             public double MonthlyF { get; set; }
             public double MonthlyM { get; set; }
 
+            //Default constructor:
 
-            public void StudentIndfo(int age, string id, string name,double monthlyj, double monthlyf, double monthlym)
-            {
+           public Student() { }
+           public Student(int age, string id, string name, double monthlyj, double monthlyf, double monthlym) {
                 Name = name.ToLower();
                 Age = age;
                 Id = id;
                 MonthlyJ = monthlyj;
                 MonthlyF = monthlyf;
                 MonthlyM = monthlym;
+            }
 
-                Console.WriteLine("Student Info:" + "\nName:" + name + "\nAge: " + age + "\nId: " + id);
+           
+            public Student(Student s2)
+            {
+                Name = s2.Name.ToLower();
+                Age = s2.Age;
+                Id =s2. Id;
+                MonthlyJ = s2.MonthlyJ;
+                MonthlyF = s2.MonthlyF;
+                MonthlyM = s2.MonthlyM;
 
-                double sumM= monthlyf+monthlyj+monthlym;
-                Console.WriteLine("Total Monthly Till March: " + sumM);
 
             }
-            public Student()
+
+            public void StudentIndfo()
             {
                 
-               
+
+                Console.WriteLine("Student Info:" + "\nName:" + Name + "\nAge: " + Age + "\nId: " + Id);
+                double sumM = MonthlyJ + MonthlyF + MonthlyM;
+                Console.WriteLine("Total Monthly Till March: " + sumM);
 
             }
         }
@@ -63,11 +70,19 @@ namespace OOPS_Concept
             Console.Write("March Monthly: ");
             double mMonthly = double.Parse((Console.ReadLine()));
 
+          
 
+            Student student1 = new Student(age,id,name,jMonthly,fMonthly,mMonthly);
+            Student s2 = new Student(student1);
+            Console.WriteLine("Original value");
 
-            Student student = new Student();
+            student1.StudentIndfo();
 
-            student.StudentIndfo(age, id, name,jMonthly,fMonthly,mMonthly);
+           Console.WriteLine("Updated Values");
+            s2.Name = "Ramesh";
+            s2.Age = 32;
+            s2.Id = "12334567-89";
+            s2.StudentIndfo();
 
             Console.ReadLine();
         }
