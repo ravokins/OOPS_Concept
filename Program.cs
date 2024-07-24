@@ -52,7 +52,7 @@ namespace OOPS_Concept
 
         
 
-        static void Main(string[] args)
+       /* static void Main(string[] args)
         {
            
 
@@ -85,7 +85,7 @@ namespace OOPS_Concept
             s2.StudentIndfo();
 
             Console.ReadLine();
-        }
+        }*/
     }
 }
 

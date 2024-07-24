@@ -3,8 +3,7 @@
 namespace OOPS_Concept
 {
 
-    // This is the example of herarical Inheritance:
-    // BMW : Car and Tata:Car so these two child have same parents so this fall under herarical Inheritance:
+  // This is the example of hybrid inheriotance in which any child class get inherited with other child and parent class: 
 
    public class Car 
     {
@@ -47,6 +46,20 @@ namespace OOPS_Concept
         }
 
     }
+    public class BmwS : BMW
+    {
+        public BmwS()
+        {
+            Console.WriteLine("The BMW S class is best car for Family ");
+        }
+    }
+    public class TataS : Tata
+    {
+        public TataS()
+        {
+            Console.WriteLine("The Tata S class is best car for Family ");
+        }
+    }
     internal class Inheritance
     {
         static void Main(string[] args)
@@ -55,11 +68,13 @@ namespace OOPS_Concept
             Car c2=new Tata();
             c2.Info("Yellow", "Four");
             Tata tata2 = new Tata();
+            Tata tata3 = new TataS();
             tata2.TataInfo("SUV 700", "200km/h"+"\n");
 
             Car car = new BMW();
             car.Info("Black", "Four");
             BMW bmw1 = new BMW();
+            BMW bmw2 = new BmwS();
             bmw1.CarInfo("BMW S Class", "200 m/h");
           
 

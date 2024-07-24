@@ -45,7 +45,7 @@ internal class PolyMorphism
 
 
 
-    static void Main(string[] args)
+   /* static void Main(string[] args)
     {
         Animal chicken = new Chicken();
 
@@ -56,6 +56,6 @@ internal class PolyMorphism
 
 
         Console.ReadLine ();
-    }
+    }*/
 }
 }
