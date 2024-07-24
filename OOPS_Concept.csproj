@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstraction.cs" />
     <Compile Include="Encapsulation.cs" />
     <Compile Include="Inheritance.cs" />
     <Compile Include="PolyMorphism.cs" />

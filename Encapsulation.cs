@@ -24,13 +24,13 @@ namespace OOPS_Concept
     }
     internal class Encapsulation
     {
-        static void Main(string[] args)
+       /* static void Main(string[] args)
         {
             Shape shape = new Shape();
             double area = shape.Area(12, 15.5);
             Console.WriteLine(area);
             Console.ReadLine();
 
-        }
+        }*/
     }
 }

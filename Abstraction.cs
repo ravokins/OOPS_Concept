@@ -29,7 +29,7 @@ namespace OOPS_Concept
    
     internal class Abstraction
     {
-        static void Main(string[] args)
+       /* static void Main(string[] args)
         {
 
             Icar Car = new Sedan("Black", "4");
@@ -44,7 +44,7 @@ namespace OOPS_Concept
             Console.ReadLine();
           
             
-        }
+        }*/
 
     }
 }

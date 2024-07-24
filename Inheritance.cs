@@ -47,7 +47,7 @@ namespace OOPS_Concept
 
     internal class Inheritance
     {
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             BmwS bmw = new BmwS();
             bmw.Info("Black", "Four");
@@ -56,6 +56,6 @@ namespace OOPS_Concept
 
             Console.ReadLine();
 
-        }
+        }*/
     }
 }

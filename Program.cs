@@ -1,93 +1,110 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace OOPS_Concept
 {
+    public interface IGun
+    {
+        void Shoot();
+        void Reload();
+
+        string GetGunInfo();
+    }
+    public abstract class Gun : IGun
+    {
+        public string Name { get; set; }
+        public int AmmoCapcity { get; set; }
+        public int CurrentAmmo { get; set; }
+
+        protected Gun(string name,int ammoCapcity) {
+            Name = name;
+            AmmoCapcity = ammoCapcity;
+            CurrentAmmo = ammoCapcity;
+        }
+
+        public abstract void Shoot();
+        public void Reload()
+        {
+            CurrentAmmo=AmmoCapcity;
+            Console.WriteLine(Name + " reloaded " + "ammo is: " + CurrentAmmo +"/"+ AmmoCapcity);
+
+        }
+
+        public string GetGunInfo()
+        {
+
+
+            return "Gun: " + Name + "Ammo: " + CurrentAmmo +"/"+ AmmoCapcity;
+        }
+
+    }
+    public class Pistol : Gun
+    {
+        // we have written this line because the main class constructor contains the definition of this
+        public Pistol():base("Pistol",15) { }
+        public override void Shoot()
+        {
+            if (CurrentAmmo > 0)
+            {
+                CurrentAmmo--;
+                Console.WriteLine("Pistol" + GetGunInfo());
+            }
+            else { Console.WriteLine("No Ammo"); }
+        }
+
+    }
+    public class Shortgun : Gun
+    {
+        // we have written this line because the main class constructor contains the definition of this
+        public Shortgun() : base("Shortgun", 12) { }
+        public override void Shoot()
+        {
+            if (CurrentAmmo > 0)
+            {
+                CurrentAmmo--;
+                Console.WriteLine("ShortGun" + GetGunInfo());
+            }
+            else { Console.WriteLine("No Ammo"); }
+        }
+
+    }
+    public class AWM : Gun
+    {
+        // we have written this line because the main class constructor contains the definition of this
+        public AWM() : base("AWM", 10) { }
+        public override void Shoot()
+        {
+            if (CurrentAmmo > 0)
+            {
+                CurrentAmmo--;
+                Console.WriteLine("AWM" + GetGunInfo());
+            }
+            else { Console.WriteLine("No Ammo"); }
+        }
+
+    }
 
     internal class Program
     {
-        class Student
+        private static void Main(string[] args)
         {
-            public string Name{ get; set; }
-            public int Age { get; set; }
-            public string Id { get; set; }
-            public double MonthlyJ { get; set; }
-            public double MonthlyF { get; set; }
-            public double MonthlyM { get; set; }
 
-            //Default constructor:
-
-           public Student() { }
-           public Student(int age, string id, string name, double monthlyj, double monthlyf, double monthlym) {
-                Name = name.ToLower();
-                Age = age;
-                Id = id;
-                MonthlyJ = monthlyj;
-                MonthlyF = monthlyf;
-                MonthlyM = monthlym;
-            }
-
-           
-            public Student(Student s2)
+            List<IGun> guns = new List<IGun> 
+            {  
+                new Pistol(),
+                new Shortgun(),
+                new AWM() 
+            };
+            foreach(var gun in guns)
             {
-                Name = s2.Name.ToLower();
-                Age = s2.Age;
-                Id =s2. Id;
-                MonthlyJ = s2.MonthlyJ;
-                MonthlyF = s2.MonthlyF;
-                MonthlyM = s2.MonthlyM;
-
-
+                gun.Shoot();
+                gun.Reload();
+                gun.Shoot();
+                Console.WriteLine();
             }
-
-            public void StudentIndfo()
-            {
-                
-
-                Console.WriteLine("Student Info:" + "\nName:" + Name + "\nAge: " + Age + "\nId: " + Id);
-                double sumM = MonthlyJ + MonthlyF + MonthlyM;
-                Console.WriteLine("Total Monthly Till March: " + sumM);
-
-            }
-        }
-
-        
-
-       /* static void Main(string[] args)
-        {
-           
-
-            Console.WriteLine("Enter Student Info: ");
-            Console.Write("Name: ");
-            string name=Console.ReadLine();
-            Console.Write("Age: ");
-            int age =Convert.ToInt32(Console.ReadLine());
-            Console.Write("Id: ");
-            string id = (Console.ReadLine());
-            Console.Write("January Monthly: ");
-            double jMonthly= double.Parse(Console.ReadLine());
-            Console.Write("February Monthly: ");
-            double fMonthly =double.Parse(Console.ReadLine());
-            Console.Write("March Monthly: ");
-            double mMonthly = double.Parse((Console.ReadLine()));
-
-          
-
-            Student student1 = new Student(age,id,name,jMonthly,fMonthly,mMonthly);
-            Student s2 = new Student(student1);
-            Console.WriteLine("Original value");
-
-            student1.StudentIndfo();
-
-           Console.WriteLine("Updated Values");
-            s2.Name = "Ramesh";
-            s2.Age = 32;
-            s2.Id = "12334567-89";
-            s2.StudentIndfo();
-
             Console.ReadLine();
-        }*/
-    }
-}
 
-    //Note: We Don't Use Destructur in c# because c# has there own garbage collector:
+        }
+    }
+}    //Note: We Don't Use Destructur in c# because c# has there own garbage collector:
 
