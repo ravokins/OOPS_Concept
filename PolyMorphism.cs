@@ -1,48 +1,61 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOPS_Concept
 {
-    internal class PolyMorphism
+    // As the Name it's self defines it property: Poly: Many, Morph: forms
+
+//Run Time polymorphism:
+// This will basically overide the function of parent class and proceed with child class function:
+
+/*Key Points
+virtual: Used in the parent class to indicate that a method can be overridden.
+override: Used in the child class to indicate that a method is overriding a parent class method.
+Polymorphism: Allows a parent class reference to point to a child class object, and the correct overridden method is called at runtime based on the actual object type.*/
+public class Animal
+{
+    public virtual void Walks()
     {
+        Console.WriteLine("Animal Walks");
 
-        // As the Name it's self defines it property: Poly: Many, Morph: forms
-
-        //Compile Time polymorphism:
-        class PolyTest
-        {
-            public void Add(int a, int b)
-            {
-                int Sum = a + b;
-                Console.WriteLine(Sum);
-            }
-
-            public void Add(int a, int b,int c)
-            {
-                int Sum = a + b+c;
-                Console.WriteLine(Sum);
-            }
-
-            public double Add(double a, double b,double c)
-            {
-                return a + b + c;
-               
-               
-            }
-
-        }
-
-        static void Main(string[] args)
-        {
-            PolyTest test = new PolyTest();
-            test.Add(1, 2);
-            test.Add(2, 3,5);
-            double sumretun= test.Add(3.5555, 4.6666,6.99999);
-            Console.WriteLine(sumretun);
-            Console.ReadLine ();
-        }
     }
+
+}
+public class Chicken : Animal
+{
+    //Overiding the walks in child class
+    public override void Walks()
+    {
+        Console.WriteLine("Chicken walks on 2 legs");
+
+    }
+}
+public class Cow : Animal
+{
+    //Overiding the walks in child class
+    public override void  Walks()
+    {
+        Console.WriteLine("Cow walks on 4 legs");
+
+    }
+}
+internal class PolyMorphism
+{
+
+
+
+
+
+    static void Main(string[] args)
+    {
+        Animal chicken = new Chicken();
+
+        chicken.Walks();
+
+        Animal cow = new Cow();
+        cow.Walks();
+
+
+        Console.ReadLine ();
+    }
+}
 }
