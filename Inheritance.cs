@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOPS_Concept
 {
 
-    //Inheritance:
+    // This is the example of herarical Inheritance:
+    // BMW : Car and Tata:Car so these two child have same parents so this fall under herarical Inheritance:
 
    public class Car 
     {
@@ -21,7 +18,7 @@ namespace OOPS_Concept
         }
     }
 
-    // Single Level Inheritance:
+   
     public class BMW:Car
     {
         public string Name;
@@ -35,8 +32,8 @@ namespace OOPS_Concept
         }
     }
 
-    // Multilevel Inheritance:
-    public class Tata : BMW
+   
+    public class Tata : Car
     {
         public string Model;
         public string Topspeed;
@@ -55,15 +52,16 @@ namespace OOPS_Concept
         static void Main(string[] args)
         {
            
+            Car c2=new Tata();
+            c2.Info("Yellow", "Four");
+            Tata tata2 = new Tata();
+            tata2.TataInfo("SUV 700", "200km/h"+"\n");
 
             Car car = new BMW();
             car.Info("Black", "Four");
             BMW bmw1 = new BMW();
             bmw1.CarInfo("BMW S Class", "200 m/h");
-            BMW tata1 =new Tata();
-            tata1.CarInfo("Tata Moters ", "60 km/h");
-            Tata tata2 =new Tata();
-            tata2.TataInfo("SUV 700", "200km/h");
+          
 
             Console.ReadLine();
 
