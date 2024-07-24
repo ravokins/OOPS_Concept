@@ -3,79 +3,55 @@
 namespace OOPS_Concept
 {
 
-  // This is the example of hybrid inheriotance in which any child class get inherited with other child and parent class: 
+   // Multiple Inheritance: In This one child hava to Parents:we achive Multiple inheritance using Interface:
 
-   public class Car 
+   public interface ICar 
     {
-        public string Color;
-        public string Wheel;
-        public void Info(string color, string wheel) 
-            {
-            this.Color = color;
-            this.Wheel = wheel;
-            Console.WriteLine("Car details:" + "\nColor: " + color + "\nWheel: " + wheel);
-        }
+        // We can't implement function and parameters in interface we just define function in interfaces:
+        string Color { get; set; }
+        string Wheel { get; set; }
+        void Info(string color,string wheel);
+     
     }
 
    
-    public class BMW:Car
+    public interface IBMW
     {
-        public string Name;
-        public string Speed;
+       string Name { set; get; }
+        string Speed { set; get; }
+        void CarInfo(string name, string speed);       
+    }
 
+  
+    public class BmwS :ICar, IBMW
+    {
+       public string Color { get; set; }
+       public string Wheel { get; set; }
+       public string Name { set; get; }
+       public string Speed { set; get; }
+
+        public void Info(string color, string wheel)
+        {
+            this.Color = color;
+            this.Wheel = wheel;
+            Console.WriteLine("Car details: \n" + "\nColor: " + color + "\nWheel: " + wheel);
+        }
         public void CarInfo(string name, string speed)
         {
             this.Name = name;
             this.Speed = speed;
             Console.WriteLine("Name and Speed: " + name + " " + speed);
         }
-    }
-
-   
-    public class Tata : Car
-    {
-        public string Model;
-        public string Topspeed;
-
-        public void TataInfo(string model,string topspeed)
-        {
-            this.Model = model;
-            this.Topspeed = topspeed;
-
-            Console.WriteLine("Model and Top speed: "+model+" "+topspeed);
-        }
 
     }
-    public class BmwS : BMW
-    {
-        public BmwS()
-        {
-            Console.WriteLine("The BMW S class is best car for Family ");
-        }
-    }
-    public class TataS : Tata
-    {
-        public TataS()
-        {
-            Console.WriteLine("The Tata S class is best car for Family ");
-        }
-    }
+
     internal class Inheritance
     {
         static void Main(string[] args)
         {
-           
-            Car c2=new Tata();
-            c2.Info("Yellow", "Four");
-            Tata tata2 = new Tata();
-            Tata tata3 = new TataS();
-            tata2.TataInfo("SUV 700", "200km/h"+"\n");
-
-            Car car = new BMW();
-            car.Info("Black", "Four");
-            BMW bmw1 = new BMW();
-            BMW bmw2 = new BmwS();
-            bmw1.CarInfo("BMW S Class", "200 m/h");
+            BmwS bmw = new BmwS();
+            bmw.Info("Black", "Four");
+            bmw.CarInfo("BMW S Class", "200 m/h");
           
 
             Console.ReadLine();
