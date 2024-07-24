@@ -2,57 +2,44 @@
 
 namespace OOPS_Concept
 {
-    // abstraction using abstract class:
-   public abstract class Animal1
+    // abstraction using Interface:
+   interface Icar
     {
-       public abstract void Walk();
-       public  void Breathe()
-        {
-            Console.WriteLine("The  animal Breaathe");
-        }
-
-       public Animal1()
-        {
-            Console.WriteLine("you created constructor for animal class");
-        }
-
-       
+      string Color { get; set; }
+        string wheelCount { get; set; }
+        void ShowInfo();
     }
     
     // when this class get constructed the parent class get constructed before by default:
-   public class Horse1 : Animal1
+   public class Sedan : Icar
     {
-       public Horse1()
+        public string Color { get; set; }
+        public string wheelCount { get; set; }
+       public Sedan(string color, string wheelCount)
         {
-            Console.WriteLine("You Created Horse class");
+            Color = color;
+            this.wheelCount = wheelCount;
         }
-        public override void Walk()
+        public  void ShowInfo()
         {
-            Console.WriteLine("Walk on four legs");
+            Console.WriteLine("Info:" + "\nColor: " + Color + "\n Wheel Count: " + wheelCount);
         }
 
     }
-    // when this class get constructed the parent class get constructed before by default:
-    class Chicken1 : Animal1
-    {
-        public override void Walk()
-        {
-            Console.WriteLine("Walks on two legs");
-        }
-        public Chicken1() {
-            Console.WriteLine("Created chicken class constructor");
-        }
-    }
+   
     internal class Abstraction
     {
         static void Main(string[] args)
         {
-            Horse1 horse1 = new Horse1();
-            horse1.Walk();
-            horse1.Breathe();
-            Chicken1 chicken1 = new Chicken1();
-            chicken1.Walk();
-            chicken1.Breathe();
+
+            Icar Car = new Sedan("Black", "4");
+            Car.ShowInfo();
+
+
+            Car.Color = "Blue";
+            Car.wheelCount = "6";
+            Car.ShowInfo();
+
 
             Console.ReadLine();
           
